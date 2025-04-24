@@ -44,7 +44,7 @@ function SearchBar() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search anime..."
-        className="border px-4 py-2 rounded-md w-full md:w-80"
+        className="mt-4 border px-4 py-2 rounded-md w-full md:w-80"
       />
 
       <button
