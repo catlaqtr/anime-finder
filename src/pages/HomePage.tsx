@@ -3,7 +3,7 @@ import SearchBar from "../components/SearchBar";
 
 function HomePage() {
   return (
-    <main>
+    <main className="bg-gray-50 dark:bg-gray-900 min-h-screen pb-8">
       <Header />
       <SearchBar />
     </main>

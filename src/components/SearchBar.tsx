@@ -57,34 +57,49 @@ function SearchBar() {
   const displayedAnime = showWatchlist ? watchlist : results;
 
   return (
-    <div className="flex flex-col items-center gap-4 px-4 max-w-screen-lg mx-auto">
+    <section className="flex flex-col items-center gap-4 px-4 max-w-screen-lg mx-auto py-8 bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-lg mt-8 transition-all duration-300">
+      <label htmlFor="anime-search" className="sr-only">
+        Search anime
+      </label>
       <input
+        id="anime-search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search anime..."
-        className="border px-4 py-2 rounded-md w-full md:w-80"
+        className="border px-4 py-2 rounded-md w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 dark:bg-gray-800 dark:text-white transition-all duration-200"
+        style={{ minHeight: 44 }}
       />
 
       <div className="flex flex-wrap gap-4">
         <button
           onClick={handleSearch}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition-all duration-200 font-semibold"
+          style={{ minHeight: 44 }}
         >
           Submit
         </button>
 
         <button
           onClick={() => setShowWatchlist(!showWatchlist)}
-          className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition"
+          className="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600 transition-all duration-200 font-semibold"
+          style={{ minHeight: 44 }}
         >
           {showWatchlist ? "🔍 Back to Search" : "🎬 View Watchlist"}
         </button>
       </div>
 
-      {loading && <p className="text-sm text-gray-500">Loading...</p>}
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {loading && (
+        <p className="text-sm text-blue-500 animate-pulse" role="status">
+          Loading...
+        </p>
+      )}
+      {error && (
+        <p className="text-sm text-red-500" role="alert">
+          {error}
+        </p>
+      )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 w-full transition-all duration-300">
         {displayedAnime.length === 0 ? (
           <p className="text-center w-full text-gray-500">
             {showWatchlist
@@ -102,7 +117,7 @@ function SearchBar() {
           ))
         )}
       </div>
-    </div>
+    </section>
   );
 }
 
