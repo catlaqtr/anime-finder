@@ -49,32 +49,34 @@ function AnimeDetails() {
     return <p className="text-center mt-8 text-red-500">Anime not found.</p>;
 
   return (
-    <div className="max-w-screen-md mx-auto px-4 py-8 text-center bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-lg mt-8 transition-all duration-300">
-      <h1 className="text-3xl font-extrabold mb-4 text-gray-900 dark:text-white drop-shadow-lg transition-colors duration-200">
-        {anime.title}
-      </h1>
-      <img
-        src={anime.images.jpg.image_url}
-        alt={anime.title}
-        className="w-full max-w-xs mx-auto mb-4 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 transition-transform duration-300 hover:scale-105"
-        style={{ minHeight: 180 }}
-      />
-      <p className="text-gray-700 dark:text-gray-200 mb-2">
-        <strong>Episodes:</strong> {anime.episodes}
-      </p>
-      <p className="text-gray-700 dark:text-gray-200 mb-2">
-        <strong>Rating:</strong> {anime.rating}
-      </p>
-      <p className="text-gray-600 dark:text-gray-300 text-justify mt-4 mb-8">
-        {anime.synopsis}
-      </p>
-      <button
-        onClick={() => navigate("/")}
-        className="mb-6 bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition-all duration-200 font-semibold"
-        style={{ minHeight: 44 }}
-      >
-        ⬅ Back to Search
-      </button>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-2">
+      <div className="max-w-screen-md w-full px-4 py-8 text-center bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-lg mt-8 transition-all duration-300">
+        <h1 className="text-3xl font-extrabold mb-4 text-gray-900 dark:text-white drop-shadow-lg transition-colors duration-200">
+          {anime.title}
+        </h1>
+        <img
+          src={anime.images.jpg.image_url}
+          alt={anime.title}
+          className="w-full max-w-xs mx-auto mb-4 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 transition-transform duration-300 hover:scale-105"
+          style={{ minHeight: 180 }}
+        />
+        <p className="text-gray-700 dark:text-gray-200 mb-2">
+          <strong>Episodes:</strong> {anime.episodes}
+        </p>
+        <p className="text-gray-700 dark:text-gray-200 mb-2">
+          <strong>Rating:</strong> {anime.rating}
+        </p>
+        <p className="text-gray-600 dark:text-gray-300 text-justify mt-4 mb-8">
+          {anime.synopsis}
+        </p>
+        <button
+          onClick={() => navigate("/")}
+          className="mb-6 bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition-all duration-200 font-semibold"
+          style={{ minHeight: 44 }}
+        >
+          ⬅ Back to Search
+        </button>
+      </div>
     </div>
   );
 }
